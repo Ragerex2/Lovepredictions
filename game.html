@@ -92,8 +92,12 @@
             document.getElementById('lovePercentage').textContent = lovePercentage + '%';
             document.getElementById('result').style.display = 'block';
             document.getElementById('shareButton').onclick = function() {
-                var shareUrl = 'https://https://ragerex2.github.io/Lovepredictions//love-calculator?yourName=' + encodeURIComponent(yourName) + '&partnerName=' + encodeURIComponent(partnerName) + '&lovePercentage=' + lovePercentage;
-                alert('Share this link with your friends: ' + shareUrl);
+                var shareUrl = 'https://your-website.com/love-calculator?yourName=' + encodeURIComponent(yourName) + '&partnerName=' + encodeURIComponent(partnerName) + '&lovePercentage=' + lovePercentage;
+                navigator.clipboard.writeText(shareUrl).then(function() {
+                    alert('Share this link with your friends:\n' + shareUrl + '\n\nThe link has been copied to your clipboard.');
+                }, function(err) {
+                    alert('Unable to copy to clipboard. Please manually copy the link:\n' + shareUrl);
+                });
             };
         });
     </script>
